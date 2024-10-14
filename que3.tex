@@ -1,1 +1,87 @@
 \que{Условия трансверсальности для задачи Лагранжа в форме Понтрягина при различных условиях на концах. Получить из выражения для первой вариации функционала.}
+
+\paragraph{Классификация задач вариационного исчисления по виду краевых условий.}
+\begin{enumerate}
+	\item Закрепленные концы. $\mathbf{y}(x_0)=\mathbf{y}_0,\;\mathbf{y}(x_1)=\mathbf{y}_1$;
+	\item Скользящие концы. $x_0, x_1$ фиксированы, а краевые условия $\mathbf{y}(x_0)=\mathbf{y}_0,\;\mathbf{y}(x_1)=\mathbf{y}_1$ \textbf{не} заданы хотя бы на одном конце отрезка $\left[x_0, x_1\right]$;
+	\item Свободные концы. Хотя бы одно (или оба) из $x_0, x_1$ не фиксировано. Не заданы краевые условия вида $\mathbf{y}(x_0)=\mathbf{y}_0,\;\mathbf{y}(x_1)=\mathbf{y}_1$ для того значения аргумента на границе участка интегрирования, который не фиксирован. Но при этом ставится достижение концом экстремали некой квазиповерхности $\mathbf{\Gamma}(x_0, \mathbf{y})=\left(\Gamma_1(x_0, \mathbf{y}),\dots,\Gamma_k(x_0, \mathbf{y})\right)^T=\mathbf{0}$ (или аналогично для правого конца $x_1$);
+	\item Со свободным временем при заданных значениях $\mathbf{y}(x_0)=\mathbf{y}_0$ и/или $\mathbf{y}(x_1)=\mathbf{y}_1$. Время не фиксировано $x_0$ и/или $x_1$.
+\end{enumerate}
+
+Дополнительные соотношения на концах участка интегрирования, учитываемоые при решении задачи Лагранжа, называют \textit{условиями трансверсальности}.
+
+Из курса вариационного исчисления вспомним выражение для первой вариации оптимизируемого функционала:
+\begin{multline*}
+	\delta J^* = \int_{x_0}^{x_1}\sum_{i=1}^{n} \left(\left(L'_{y_i}-\frac{d}{dx}L'_{y'_i}\right)\delta y_i\right) dx +
+	\left.\left[\left(L-\sum_{i=1}^{n}\left(L'_{y'_i}y'_i\right)\right)\delta x + \sum_{i=1}^{n}\left(L'_{y'_i}\delta y_i\right)\right]\right|_{x=x_1} - \\ -
+	\left.\left[\left(L-\sum_{i=1}^{n}\left(L'_{y'_i}y'_i\right)\right)\delta x + \sum_{i=1}^{n}\left(L'_{y'_i}\delta y_i\right)\right]\right|_{x=x_0}
+\end{multline*}
+
+Из равенства нулю первой вариации вытекает система уравнений Эйлера $L'_{y_i}-\frac{d}{dx}L'_{y'_i}=0$. В данной системе $n$ ОДУ 2-го порядка, для частного решения которой необходимо $2n$ краевых условий.
+
+Далее рассмотрим виды краевых условий:
+\begin{enumerate}
+	\item Закрепленные концы.
+	Имеем $2n$ краевых условий вида $\mathbf{y}(x_0)=\mathbf{y}_0,\;\mathbf{y}(x_1)=\mathbf{y}_1$, при этом все $\delta y_i=0$ на обоих концах участка интегрирования, а также $\left.\delta x\right|_{x=x_0}=\left.\delta x\right|_{x=x_1}=0$, что обнуляет второе и третье слагаемые в первой вариации функционала. Следовательно в случае с закрепленными концами необходимым условие существования экстремума является система уравнений Эйлера с исходными краевыми условиями.
+	
+	\item Скользящие концы. Во втором и третьем слагаемых равны нулю приращения аргумента на границах, а для равенства нулю первой вариации становится необходимым равенство нулю выражений $\left.L'_{y'_i}\right|_{x=x_0}=0$ или $\left.L'_{y'_i}\right|_{x=x_1}=0$ для тех функций на том конце, где отсутствуют краевые условия. Выражения $\left.L'_{y'_i}\right|_{x=x_0}=0$ или $\left.L'_{y'_i}\right|_{x=x_1}=0$ называют \textit{условиями трансверсальности} или \textit{естественными краевыми условиями}. Общее число краевых условий в этом случае равно $2n$.
+	
+	\item Свободные концы и доп условия $\mathbf{\Gamma}(x_0, \mathbf{y})=\mathbf{0}$ и/или $\mathbf{\Gamma}(x_1, \mathbf{y})=\mathbf{0}$.
+	
+	\begin{equation*}
+		\left[
+		\begin{array}{c}
+			\left.\delta x\right|_{x=x_0}\neq0\\
+			\left.\delta x\right|_{x=x_1}\neq0
+		\end{array}
+		\right. \implies
+		\left[
+		\begin{array}{c}
+			\left. \left(L-\sum_{i=1}^{n}\left(L'_{y'_i}y'_i\right)\right)\delta x + \sum_{i=1}^{n}\left(L'_{y'_i}\delta y_i\right) \right|_{x=x_1}=0\\
+			\left. \left(L-\sum_{i=1}^{n}\left(L'_{y'_i}y'_i\right)\right)\delta x + \sum_{i=1}^{n}\left(L'_{y'_i}\delta y_i\right) \right|_{x=x_0}=0
+		\end{array}
+		\right. 
+	\end{equation*}
+	Недостающие связи между $\delta x$ и $\delta y_i$ получим из $\delta \mathbf{\Gamma}(x_0,\mathbf{y})=\mathbf{0}$ и/или $\delta \mathbf{\Gamma}(x_1,\mathbf{y})=\mathbf{0}$, где
+	\begin{equation*}
+		\delta \Gamma_j(x,\mathbf{y})=\frac{\partial \Gamma_j}{\partial x}\delta x + \sum_{i=1}^{n}\frac{\partial \Gamma_j}{\partial y_i}\delta y_i.
+	\end{equation*}
+	\item Со свободным временем при заданных значениях $\mathbf{y}(x_0)=\mathbf{y}_0$ и/или $\mathbf{y}(x_1)=\mathbf{y}_1$.
+	Условия трансверсальности примут вид:
+	\begin{equation*}
+		\left.L - \sum_{i=1}^{n}\left(L'_{y'_i}y'_i\right)\right|_{x=x_0}=0
+		\quad\text{и/или}\quad
+		\left.L - \sum_{i=1}^{n}\left(L'_{y'_i}y'_i\right)\right|_{x=x_1}=0
+	\end{equation*}
+\end{enumerate}
+
+\paragraph{В задаче Лагранжа в форме Понтрягина}
+Запишем вариацию
+\begin{equation*}
+		\left.\left[ \left(L-\sum_{i=1}^{n}\left(L'_{x'_i}x'_i\right)\right)\delta t + \sum_{i=1}^{n}\left(L'_{x'_i}\delta x_i\right) \right]\right|_{t=t_1}-
+		\left.\left[ \left(L-\sum_{i=1}^{n}\left(L'_{x'_i}x'_i\right)\right)\delta t + \sum_{i=1}^{n}\left(L'_{x'_i}\delta x_i\right) \right]\right|_{t=t_0}=0,
+\end{equation*}
+где
+\begin{align*}
+	&L'_{x'_i}\delta x_i=\psi_i(t)\delta x_i\\
+	& -H\delta t = \left(L-\sum_{i=1}^{n}\left(L'_{x'_i}x'_i\right)\right)\delta t
+\end{align*}
+\begin{enumerate}
+	\item Закрепленные концы. Условий трансверсальности нет.
+	\item Скользящие концы. 
+	\begin{equation*}
+		\left.\psi_i(t)\right|_{t=t_0} = 0\;\text{или}\;\left.\psi_i(t)\right|_{t=t_1} = 0
+	\end{equation*}
+	\item Свободные концы.
+	\begin{equation*}
+		\left.\left(-H\delta t + \sum_{i=1}^{n}\psi_i\delta x_i\right)\right|_{t=t_1}-\left.\left(-H\delta t + \sum_{i=1}^{n}\psi_i\delta x_i\right)\right|_{t=t_0}=0
+	\end{equation*}
+	\item Со свободным временем при заданных значениях $\mathbf{y}(x_0)=\mathbf{y}_0$ и/или $\mathbf{y}(x_1)=\mathbf{y}_1$.
+	\begin{equation*}
+		\left.\left(\delta T-H\delta t\right)\right|_{t=t_1}-\left.\left(-\delta\tilde{T}-H\delta t \right)\right|_{t=t_0}=0
+	\end{equation*}
+	\item В самом общем виде.
+	\begin{equation*}
+		\left.\left(\delta T-H\delta t+ \sum_{i=1}^{n}\psi_i\delta x_i\right)\right|_{t=t_1}-\left.\left(-\delta\tilde{T}-H\delta t+ \sum_{i=1}^{n}\psi_i\delta x_i \right)\right|_{t=t_0}=0
+	\end{equation*}
+\end{enumerate}

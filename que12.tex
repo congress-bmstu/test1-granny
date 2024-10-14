@@ -1,1 +1,46 @@
 \que{Неавтономные системы. Постановка нестационарной задачи ОУ. Сведение задачи ОУ к случаю автономных систем.}
+
+\begin{definition}
+  \emph{Простейшая неавтономная задача ОУ}:
+  \[
+    \begin{cases}
+      J(t, \mathbf{x}, \mathbf{u}) = \int\limits_{t_0}^{t_1} f_0(t, \mathbf{x}, \mathbf{u}) \, dt \to \min, \\
+      \mathbf{x}' = \mathbf{f}(t, \mathbf{x}, \mathbf{u}), \\
+      \mathbf{x}(t_0) = \mathbf{x}_0, \\
+      \mathbf{x}(t_1) = \mathbf{x}_1, \\
+      \mathbf{u} \in U \subset \mathcal{R}^r.
+    \end{cases}
+  \]
+\end{definition}
+
+\paragraph{Сведение задачи ОУ к случаю автономных систем.}
+
+Введём еще одну фазовую переменную $x_{n+1}(t) = t$, тогда задача примет вид:
+\[
+  \begin{cases}
+    J(x_{n+1}, \mathbf{x}, \mathbf{u}) = \int\limits_{t_0}^{t_1} f_0(x_{n+1}, \mathbf{x}, \mathbf{u}) \, dt \to \min, \\
+    \mathbf{x}' = \mathbf{f}(x_{n+1}, \mathbf{x}, \mathbf{u}), \\
+    \mathbf{x}(t_0) = \mathbf{x}_0, \; x_{n+1}(t_0) = t_0, \\
+    \mathbf{x}(t_1) = \mathbf{x}_1, \\
+    \mathbf{u} \in U \subset \mathcal{R}^r.
+  \end{cases}
+\]
+
+Условие трансверсальности на правом конце $\psi_{n+1} (t_1) = 0$.
+
+Функция Понтрягина в этом случае:
+\[
+  H(x_{n+1}, \mathbf{x}, \mathbf{\psi}, \psi_{n+1}, \mathbf{u}) = \sum_{i=0}^n \psi_i(t) \cdot f_i(x_{n+1}, \mathbf{x}, \mathbf{u}) + \psi_{n+1}(t) \cdot 1.
+\]
+
+Сопряженная система:
+\[
+  \begin{cases}
+    \dfrac{d \psi_i}{dt} = - \dfrac{\partial H}{\partial x_i}, \, i = \overline{1, n} \\
+    \dfrac{d\psi_{n+1}}{dt} = - \dfrac{\partial H}{\partial x_{n+1}} - \dfrac{\partial H}{\partial t} 
+  \end{cases}
+\]
+
+Таким образом, пришли к постановке заадчи, соответствующей теореме принцип максимума Понтрягина.
+
+% TODO дописать если будет время

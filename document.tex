@@ -1,0 +1,135 @@
+\documentclass[12pt]{article}
+
+\usepackage{svg}
+\svgpath{{img/}}
+\usepackage{wrapfig}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+
+\usepackage{amsmath}
+\usepackage{amsthm, mathrsfs, mathtools, amssymb}
+\usepackage{enumitem}
+
+\usepackage{physics}
+
+\usepackage{epigraph}
+
+\usepackage{tikz}
+\usepackage{subcaption}
+\usetikzlibrary{decorations.pathmorphing}
+% для волнистой линии для фотонов создал стиль линии snake arrow
+% рисует волну и на конце ее чуть-чуть прямую линию оставляет для стрелки
+\tikzset{snake arrow/.style=
+	{->,
+		decorate,
+		decoration={snake,amplitude=.4mm,segment length=2mm,post length=1mm}},
+}
+\usepackage{caption}
+\usepackage{tensor}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
+\DeclareMathOperator{\supp}{supp}
+
+\usepackage{geometry}
+\geometry{verbose,a4paper,tmargin=1cm,bmargin=2cm,lmargin=1.5cm,rmargin=1.5cm}
+
+\newtheoremstyle{example}% name
+{0.7cm}% Space above
+{0.7cm}% Space below
+{\small}% Body font
+{}% Indent amount
+{\small\scshape}% Theorem head font
+{.}% Punctuation after theorem head
+{.5em}% Space after theorem head
+{}% Theorem head spec (can be left empty, meaning ‘normal’)
+
+\theoremstyle{example}
+\newtheorem{example}{Пример}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}
+\newtheorem{corollary}{Следствие}
+\newtheorem*{corollary*}{Следствие} 
+\newtheorem{lemma}{Лемма}
+\newtheorem{utv}{Утверждение}
+\newtheorem*{utv*}{Утверждение}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}
+\newtheorem*{definition*}{Определение}
+\newtheorem{question}{Вопрос}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Замечание}
+\newtheorem*{remark*}{Замечание}
+\numberwithin{remark}{section}
+
+\frenchspacing
+
+\usepackage[labelsep=period]{caption}
+\captionsetup{font = small}
+
+\DeclareMathAlphabet{\mathbfit}{OML}{cmm}{b}{it}
+
+
+\newcounter{problem} 
+\newenvironment{problem}[1][]
+{
+	\refstepcounter{problem} 
+	\par \vspace{0.7em} \noindent
+	\textbf{Задача \theproblem}\ifx&#1&\else\ (#1)\fi. 
+}
+{
+	\vspace{1em}	
+}
+
+\newenvironment{solution}
+{
+	\vspace{0.3em}
+	\par\textsc{Решение.}
+}
+{
+	\qed
+}
+
+\newcommand{\que}[1]{%
+	\subsection{#1}\label{que\thesubsection}
+}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+
+
+\begin{document}
+	
+	\begin{center}
+		\Huge \bf	
+		\textsc{Оптимальное управление}
+		\rule{\textwidth}{0.4pt}
+	\end{center}
+	\tableofcontents
+	
+	\include{que1}
+	\include{que2}
+	\include{que3}
+	\include{que4}
+	\include{que5}
+	\include{que6}
+	\include{que7}
+	\include{que8}
+	\include{que9}
+	\include{que10}
+	\include{que11}
+	\include{que12}
+\end{document}

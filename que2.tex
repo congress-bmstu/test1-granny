@@ -1,0 +1,59 @@
+\que{Постановка задачи ОУ в форме Понтрягина. Допустимые классы функций для фазовых переменных и управлений. Сопряженная система и ее связь с уравнениями Эйлера в канонической форме.}
+
+\subsubsection{Постановка задачи.}
+
+Функционал явно не зависит от времени:
+\begin{equation*}
+	J(\mathbf{x},\mathbf{u})=\int_{t_0}^{t_1}f_0(\mathbf{x},\mathbf{u}) dt\to\min
+\end{equation*}
+
+Система состояния автономна, то есть явно не зависит от времени:
+\begin{equation*}
+	\mathbf{x}'=\mathbf{f}(\mathbf{x},\mathbf{u}),
+\end{equation*}
+где $\mathbf{x}$ - кусочно-дифференцируемые функции, $\mathbf{u}$ - кусочно-непрерывные, $f_0, \mathbf{f}$ - непрерывно дифференцируемы по фазовым переменным.
+
+Краевые условия и ограничения на управления:
+\begin{equation*}
+	\mathbf{x}(t_0)=\mathbf{x}_0,\; \mathbf{x}(t_1) = \mathbf{x}_1,\quad
+	\mathbf{u} \in U \in \mathfrak{R}^r
+\end{equation*}
+
+Нет ограничений на фазовые переменные, момент времени $t_1$ - не фиксирован.
+
+Решением является допустимый оптимальный процесс $\left(t^*_1,\mathbf{x}^*(t), \mathbf{u}^*(t)\right)$.
+
+\subsubsection{Расширенная система состояния.}
+Введем новые переменные:
+\begin{equation*}
+	x_0(t)=\int_{t_0}^{t} f_0(\mathbf{x},\mathbf{u}) dt,\quad \frac{dx_0(t)}{dt}=f_0(\mathbf{x},\mathbf{u})
+\end{equation*}
+\begin{equation*}
+	\hat{\mathbf{x}} = x_0 + \mathbf{x} = \left[\underbrace{x_0}_{\text{новый член}}, \underbrace{x_1, \dots, x_n}_{\mathbf{x}}\right]^T,\quad
+	\hat{\mathbf{f}} = f_0 + \mathbf{f} = \left[\underbrace{f_0}_{\text{новый член}}, \underbrace{f_1, \dots, f_n}_{\mathbf{f}}\right]^T
+\end{equation*}
+вектор-функция $\hat{\mathbf{f}}$ не зависит от $x_0$.
+Тогда расширенная система состояния:
+\begin{equation*}
+	\hat{\mathbf{x}}'=\hat{\mathbf{f}}'(\mathbf{x},\mathbf{u})
+\end{equation*}
+Новая форма записи функционала:
+\begin{equation*}
+	J(\mathbf{x},\mathbf{u}) = x_0(t_1)
+\end{equation*}
+
+\subsubsection{Сопряженная система.}
+\begin{equation*}
+	\frac{d\psi_i}{dt} = -\sum_{j=0}^{n}\frac{\partial f_j}{\partial x_i}(\mathbf{x}, \mathbf{u})\psi_j,
+\end{equation*}
+получается из уравнений Эйлера в каноническом виде
+\begin{equation*}
+	\frac{d\psi_i}{dt} = - \frac{\partial H}{\partial x_i},
+\end{equation*}
+где $H$ - функция Понтрягина имеет вид:
+\begin{equation*}
+	H(\hat{\mathbf{x}},\hat{\mathbf{\psi}}, \mathbf{u})=\sum_{i=0}^{n}\underbrace{\psi_i(t)}_{\substack{\text{сопряженные}\\\text{переменные}}}\cdot f_i(\mathbf{x},\mathbf{u}).
+\end{equation*}
+
+\subsubsection{$\Pi$-система}
+Объединенные расширенная система состояний и сопряженная система составляют $\Pi$-систему.

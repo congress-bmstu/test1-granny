@@ -1,1 +1,56 @@
 \que{Линейная задача быстродействия. Условие общности положения для области управлений.}
+
+\begin{definition}
+  Задача быстродействия называется \emph{линейной}, если закон движения линеен, а так же область ограничений является замкнутым, ограниченным многогранником, удовлетворяющим также условию общности положения по отношению к системе состояния:
+  \[
+    \begin{cases}
+      \dfrac{d\mathbf{x}}{dt} = A\mathbf{x} + B\mathbf{u}, \\
+      \sum_{i=1}^r \alpha_{ji} u_i \leqslant \beta_j, \; j=\overline{1, s},
+    \end{cases}
+  \]
+  где $\mathbf{x} = \left( x_1(t), x_2(t), \dots, x_n(t) \right)^T$,
+  $\mathbf{u} = \left( u_1(t), u_2(t), \dots, u_r(t) \right)^T$,
+  $A \in \mathbb{R}^{n\times n}, B \in \mathbb{R}^{n\times r}$;
+  $\alpha_{ji}, \beta_j \in \mathcal{R}$. 
+\end{definition}
+
+
+\paragraph{Условие общности положения для области управлений}
+Пусть $U$ удовлетворяет \emph{условию общности положения по отношению к системе состояний}, т.е. 
+$\forall \mathbf{v}\in\mathcal{R}^r$, лежащего на прямой, параллельной какому-либо ребру
+многогранника $U$, векторы
+$B\mathbf{v}, AB\mathbf{v}, A^2B\mathbf{v}, \dots, A^{n-1}B\mathbf{v}$ -- линейно независимы.
+
+\begin{example}
+  Пусть система состояния имеет вид:
+  \[
+    \begin{cases}
+      x_1' = x_2 + u_1,\\
+      x_2' = x_3 + u_2,\\
+      x_3' = x_1 + u_1,
+    \end{cases}
+    \Rightarrow
+    \mathbf{x}' = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{pmatrix} \mathbf{x} +
+    \begin{pmatrix} 1 & 0 \\ 0 & 1 \\ 1 & 0 \end{pmatrix} \mathbf{u},
+  \]
+  и $|u_1| \leqslant 1, |u_2| \leqslant 1$.
+
+  Проверим выполнение условия общности положения для области управлений:
+  вектора $\mathbf{v}_1 = \begin{pmatrix} 1 & 0 \end{pmatrix}^T$ и
+  $\mathbf{v}_2 = \begin{pmatrix} 0 & 1 \end{pmatrix}^T$ параллельны рёбрам множества $U$.
+  Посчитаем $B\mathbf{v}, AB\mathbf{v}, A^2 B \mathbf{v}$:
+  \begin{align*}
+    \begin{rcases}
+      B\mathbf{v}_1 = \begin{pmatrix} 1 & 0 & 1 \end{pmatrix}^T, \\
+      AB\mathbf{v}_1 = \begin{pmatrix} 0 & 1 & 1 \end{pmatrix}^T, \\
+      A^2 B \mathbf{v}_1 = \begin{pmatrix} 1 & 1 & 0 \end{pmatrix}^T, \\
+    \end{rcases} & \Rightarrow \operatorname{det}(B\mathbf{v}, AB\mathbf{v}, A^2 B \mathbf{v}) = -2 \neq 0 \\
+    \begin{rcases}
+      B\mathbf{v}_2 = \begin{pmatrix} 0 & 1 & 0 \end{pmatrix}^T, \\
+      AB\mathbf{v}_2 = \begin{pmatrix} 1 & 0 & 0 \end{pmatrix}^T, \\
+      A^2 B \mathbf{v}_2 = \begin{pmatrix} 0 & 0 & 1 \end{pmatrix}^T,
+    \end{rcases} &\Rightarrow \operatorname{det}(B\mathbf{v}_2, AB\mathbf{v}_2, A^2 B \mathbf{v}_2) = -1 \neq 0
+  \end{align*}
+
+  Следовательно, область управлений удовлетворяет условию общности положения.
+\end{example}

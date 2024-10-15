@@ -1,1 +1,70 @@
 \que{Постановка задачи Больца ОУ. Условия трансверсальности при различных условиях на концах.}
+Рассматривается \emph{задача Больца} 
+\[
+  \mathscr{J}[\mathbf{x}, \mathbf{u}] = \int\limits_{t_0}^{t_1}F(t,
+  \mathbf{x}, \mathbf{u})\,dt + T(\mathbf{x}(t_0), \mathbf{x}(t_1))
+  \to \mathrm{extr},
+\]
+где чаще всего терминальный член раскладывается в $ T(\mathbf{x}(t_0),
+\mathbf{x}(t_1)) = T_0(\mathbf{x}(t_0)) + T_1(\mathbf{x}(t_1)) $. 
+
+Кроме того, задан закон движения  
+\[
+  \dot{\mathbf{x}} = \mathbf{f}(t, \mathbf{x}, \mathbf{u}),
+\]
+где $ t \in [t_0, t_1] $; функция $ \mathbf{f} $ --- непрерывная по всем
+переменным и гладкая по переменным
+$ \mathbf{x} $; $ \mathbf{u}(t) $ --- кусочно-непрерывная внутри и непрерывная на
+концах отрезка $ [t_0, t_1] $ функция; $ \mathbf{x} $ --- кусочно-гладкая
+функция. 
+
+Предполагается, что на концах отрезка поставлены следующие краевые условия: 
+\[
+  \Psi(\mathbf{x}_0) = \mathbf{0}, \qquad \Theta(\mathbf{x}_1) = \mathbf{0},
+\]
+где $ \mathbf{x}_i := \mathbf{x}(t_i) $, и указанные функции дважды
+дифференцируемы. Это наиболее общий случай скользящих концов.
+
+Тогда вспомогательный функционал будет иметь вид 
+\[
+  \mathscr{J}^\ast[\mathbf{x}, \mathbf{u}] = \int\limits_{t_0}^{t_1}
+  \mathscr{L}\,dt  + \mu^{\mathsf{T}}\Psi + \nu^{\mathsf{T}}\Theta + T_0 + T_1,
+\]
+где $ \mathscr{L} := F(t, \mathbf{x}, \mathbf{u}) +
+\sum\lambda_i(t)(\dot{x}_i - f^i(t, \mathbf{x}, \mathbf{u})) $. Из уравнений
+Эйлера получаем 
+\begin{align*}
+  \dot\lambda_i &= F'_{x_i} - \lambda^{\mathsf T} \mathbf{f}'_{x_i}, \\
+  0 &= F'_{u_j} - \lambda^{\mathsf T} \mathbf{f}'_{u_j}.
+\end{align*}
+
+Положим
+\begin{gather*}
+  p_i(t) := L'_{x'_i} = \lambda_i, \\
+  \mathscr{H} := - \mathscr{L} + \sum_{i=1}^n
+  p_i(t)\dot{x}_i = \sum_{i=1}^n p_i(t) f^i(t, \mathbf{x}, \mathbf{u}) - F(t,
+  \mathbf{x}, \mathbf{u}).
+\end{gather*}
+Тогда  
+\begin{align*}
+  \dot{p}_i &= - \frac{\partial \mathscr H}{\partial x_i},\\
+  \dot{x}_i &= \frac{\partial \mathscr H}{\partial p_i}
+\end{align*}
+и $ \mathscr{H}'_{u_j} = - \mathscr{L}'_{u_j} = 0 $.
+
+% В случае нефиксированного отрезка времени
+
+Также добавляем \emph{условия трансверсальности} 
+\[
+  \biggl[\delta T_0 - H\delta t + \sum_{i=1}^n (p_i+\nu^{\mathsf
+    T}\theta'_{x_i})\delta
+    x_i\biggr|_{t=t_1}\!\!\! -
+    \biggl[ - \delta T_1 - H\delta t + \sum_{i=1}^n (p_i-\mu\psi'_{x_i})\delta x_i
+      \biggr|_{t=t_0} \!\!\! = 0,
+\]
+где  
+\[
+  \delta T_i = \frac{\partial T_i}{\partial t} + \sum_{i=1}^n \frac{\partial
+  T_i}{\partial x_i}\delta x_i.
+\]
+

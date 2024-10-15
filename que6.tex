@@ -1,1 +1,40 @@
 \que{Формулировка теоремы максимума Понтрягина в простейшей задаче Лагранжа с фиксированными концами и нефиксированным временем на правом конце.}
+Пусть 
+\begin{itemize}[label=--]
+  \item функции $ f_0 $, $ \dot{\mathbf{x}} = \mathbf{f} $ явно не зависят от
+времени; 
+\item $ \mathbf{x}(t_0) = \mathbf{x}_0 $, $ \mathbf{x}(t_1) = \mathbf{x}_1 $; 
+\item момент времени $ t_1 $ не фиксирован;
+ \item ограничены управления, но нет ограничений на фазовые переменные.
+\end{itemize}
+
+Введём дополнительную фазовую переменную  
+\[
+  x_0(t) := \int\limits_{t_0}^{t}f_0(\mathbf{x}, \mathbf{u})\,dt, \qquad
+  \dot{x}_0(t) = f_0(\mathbf{x}, \mathbf{u}).
+\]
+Тогда новые вектор-функции $ \hat{\mathbf{x}} $, $ \hat{\mathbf{f}} $ порождают
+функцию Гамильтона  
+\[
+  \mathscr{H}(\hat{\mathbf{x}}, \hat{\mathbf{f}}, \mathbf{u}) = \sum_{i=0}^n
+  p_i(t)f^i(\mathbf{x}, \mathbf{u}).
+\]
+В частности, $ \dot{p}_0(t) = -\frac{\partial \mathscr H}{\partial x_0} = 0 $, то
+есть $ p_0 \equiv \mathrm{const} $.
+
+% Пусть также $ M(\hat{\mathbf{x}}, \hat{\mathbf{p}}) := \max\limits_{u\in U} \mathscr H
+% $.
+
+\begin{theorem}
+  Если $ (\mathbf{x}^\ast(t), \mathbf{u}^{\ast}(t)) $ --- оптимальный процесс
+  указанной задачи, то найдётся такая ненулевая вектор-функция $
+  \hat{\mathbf{p}}(t) $, удовлетворяющая сопряжённой системе, что 
+  \begin{enumerate}
+    \item $ \mathscr H(\hat{\mathbf{x}}^{\ast}, \hat{\mathbf{p}}^{\ast},
+      \mathbf{u}^\ast) = \max\limits_{u\in U} \mathscr H(\hat{\mathbf{x}}^\ast,
+      \hat{\mathbf{p}}^\ast, \mathbf{u}) $.
+    \item $ p_0^\ast(t_1) \leqslant 0 $, $ \max\limits_{u\in U} \mathscr H(\hat{\mathbf{x}}^\ast,
+      \hat{\mathbf{p}}^\ast, \mathbf{u})\bigr|_{t=t_1} = 0 $.
+  \end{enumerate}
+\end{theorem}
+

@@ -1,1 +1,28 @@
 \que{Задача быстродействия. Постановка задачи.}
+Пусть дана \emph{задача быстродействия}
+\begin{itemize}[label=--]
+  \item $ f_0 \equiv 1 $;
+  \item функция $\dot{\mathbf{x}} = \mathbf{f} $ явно не зависят от
+времени; 
+\item $ \mathbf{x}(t_0) = \mathbf{x}_0 $, $ \mathbf{x}(t_1) = \mathbf{x}_1 $; 
+\item момент времени $ t_1 $ не фиксирован;
+ \item ограничены управления, но нет ограничений на фазовые переменные.
+\end{itemize}
+
+Введём дополнительную фазовую переменную  
+\[
+  x_0(t) := \int\limits_{t_0}^{t}f_0(\mathbf{x}, \mathbf{u})\,dt, \qquad
+  \dot{x}_0(t) = f_0(\mathbf{x}, \mathbf{u}).
+\]
+Тогда новые вектор-функции $ \hat{\mathbf{x}} $, $ \hat{\mathbf{f}} $ порождают
+функцию Гамильтона  
+\[
+  \mathscr{H}(\hat{\mathbf{x}}, \hat{\mathbf{f}}, \mathbf{u}) = \sum_{i=0}^n
+  p_if^i(\mathbf{x}, \mathbf{u}).
+\]
+В частности, $ \dot{p}_0(t) = -\frac{\partial \mathscr H}{\partial x_0} = 0 $, то
+есть $ p_0 \equiv \mathrm{const} $.
+
+Предположим, что в результате решения $ p_i = 0 $ для всех $ 1 \leqslant 1
+\leqslant n $. Отсюда 
+вытекает, что и $ p_0 = 0 $. Но по теореме максимума Понтрягина это невозможно. 
